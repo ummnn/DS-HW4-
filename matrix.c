@@ -3,32 +3,32 @@
 #include <time.h>
 
 /* Method Declaration */
-int** create_matrix(int row, int col); 			   //Çà·Ä »ý¼º ÇÔ¼ö
-void print_matrix(int** matrix, int row, int col); //Çà·Ä Ãâ·Â ÇÔ¼ö
-int free_matrix(int** matrix, int row, int col);   //¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦ ÇÔ¼ö
-int fill_data(int** matrix, int row, int col); 	   //Çà·Ä¿¡ °ªÀ» ³Ö´Â ÇÔ¼ö
-int addition_matrix(int** matrix_a, int** matrix_b, int row, int col);		//Çà·ÄÀÇ ÇÕÀ» ±¸ÇÏ´Â ÇÔ¼ö
-int subtraction_matrix(int** matrix_a, int** matrix_b, int row, int col);	//Çà·ÄÀÇ Â÷¸¦ ±¸ÇÏ´Â ÇÔ¼ö
-int transpose_matrix(int** matrix, int** matrix_t, int row, int col);		//ÀüÄ¡Çà·ÄÀ» ±¸ÇÏ´Â ÇÔ¼ö
-int multiply_matrix(int** matrix_a, int** matrix_t, int row, int col);		//Çà·ÄÀÇ °öÀ» ±¸ÇÏ´Â ÇÔ¼ö
+int** create_matrix(int row, int col); 		   //í–‰ë ¬ ìƒì„± í•¨ìˆ˜
+void print_matrix(int** matrix, int row, int col); //í–‰ë ¬ ì¶œë ¥ í•¨ìˆ˜
+int free_matrix(int** matrix, int row, int col);   //ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ í•¨ìˆ˜
+int fill_data(int** matrix, int row, int col); 	   //í–‰ë ¬ì— ê°’ì„ ë„£ëŠ” í•¨ìˆ˜
+int addition_matrix(int** matrix_a, int** matrix_b, int row, int col);		//í–‰ë ¬ì˜ í•©ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int subtraction_matrix(int** matrix_a, int** matrix_b, int row, int col);	//í–‰ë ¬ì˜ ì°¨ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int transpose_matrix(int** matrix, int** matrix_t, int row, int col);		//ì „ì¹˜í–‰ë ¬ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int multiply_matrix(int** matrix_a, int** matrix_t, int row, int col);		//í–‰ë ¬ì˜ ê³±ì„ êµ¬í•˜ëŠ” í•¨ìˆ˜
 
 int main()
 {
-    char command; //¸í·É¾î¸¦ ´ã´Â º¯¼ö
-    printf("[----- [ÀÌµ¿Çö]  [2019038027] -----]\n");
+    char command; //ëª…ë ¹ì–´ë¥¼ ë‹´ëŠ” ë³€ìˆ˜
+    printf("[----- [ì´ë™í˜„]  [2019038027] -----]\n");
 
-	int row, col; //Çà°ú ¿­
-	srand(time(NULL)); //timeÇÔ¼ö¸¦ ÀÌ¿ëÇØ ·£´ýÇÑ ¼ö »ý¼º
+	int row, col; //í–‰ê³¼ ì—´
+	srand(time(NULL)); //timeí•¨ìˆ˜ë¥¼ ì´ìš©í•´ ëžœë¤í•œ ìˆ˜ ìƒì„±
 
 	printf("Input row and col : ");
-	scanf("%d %d", &row, &col); //Á¤¼öÇüÀ¸·Î Çà°ú ¿­ÀÇ Å©±â¸¦ ÀÔ·Â¹Þ´Â´Ù
-    int** matrix_a = create_matrix(row, col);	//create_matrix ÇÔ¼ö·Î matrix_a »ý¼º
-	int** matrix_b = create_matrix(row, col); 	//create_matrix ÇÔ¼ö·Î matrix_b »ý¼º
-	int** matrix_a_t = create_matrix(col, row); //create_matrix ÇÔ¼ö·Î matrix_a_t »ý¼º
+	scanf("%d %d", &row, &col); //ì •ìˆ˜í˜•ìœ¼ë¡œ í–‰ê³¼ ì—´ì˜ í¬ê¸°ë¥¼ ìž…ë ¥ë°›ëŠ”ë‹¤
+    int** matrix_a = create_matrix(row, col);	//create_matrix í•¨ìˆ˜ë¡œ matrix_a ìƒì„±
+	int** matrix_b = create_matrix(row, col); 	//create_matrix í•¨ìˆ˜ë¡œ matrix_b ìƒì„±
+	int** matrix_a_t = create_matrix(col, row); //create_matrix í•¨ìˆ˜ë¡œ matrix_a_t ìƒì„±
 
 	printf("Matrix Created.\n");
 
-	if (matrix_a == NULL || matrix_b == NULL) {return -1;} //matrix_a matrix_b°¡ NULLÀÏ °æ¿ì -1¹ÝÈ¯
+	if (matrix_a == NULL || matrix_b == NULL) {return -1;} //matrix_a matrix_bê°€ NULLì¼ ê²½ìš° -1ë°˜í™˜
 
 	do{
 		printf("----------------------------------------------------------------\n");
@@ -41,53 +41,53 @@ int main()
 		printf("----------------------------------------------------------------\n");
 
 		printf("Command = ");
-		scanf(" %c", &command); //¸í·É¾î¸¦ ÀÔ·Â¹Þ´Â´Ù
+		scanf(" %c", &command); //ëª…ë ¹ì–´ë¥¼ ìž…ë ¥ë°›ëŠ”ë‹¤
 
 		switch(command) {
-		case 'z': case 'Z': //¸í·É¾î°¡ z³ª ZÀÎ °æ¿ì
+		case 'z': case 'Z': //ëª…ë ¹ì–´ê°€ zë‚˜ Zì¸ ê²½ìš°
 		    printf("Matrix Initialized\n");  
-			fill_data(matrix_a, row, col); //fill_data ÇÔ¼ö·Î Çà·Äa¸¦ Ã¤¿î´Ù
-			fill_data(matrix_b, row, col); //fill_data ÇÔ¼ö·Î Çà·Äb¸¦ Ã¤¿î´Ù
+			fill_data(matrix_a, row, col); //fill_data í•¨ìˆ˜ë¡œ í–‰ë ¬aë¥¼ ì±„ìš´ë‹¤
+			fill_data(matrix_b, row, col); //fill_data í•¨ìˆ˜ë¡œ í–‰ë ¬bë¥¼ ì±„ìš´ë‹¤
 			break;
-        case 'p': case 'P': //¸í·É¾î°¡ p³ª PÀÎ °æ¿ì
+        case 'p': case 'P': //ëª…ë ¹ì–´ê°€ pë‚˜ Pì¸ ê²½ìš°
             printf("Print matrix\n");
             printf("matrix_a\n");
-			print_matrix(matrix_a, row, col); //print_matrixÇÔ¼ö·Î matrix_a Ãâ·Â
+			print_matrix(matrix_a, row, col); //print_matrixí•¨ìˆ˜ë¡œ matrix_a ì¶œë ¥
 			printf("matrix_b\n");
-			print_matrix(matrix_b, row, col); //print_matrixÇÔ¼ö·Î matrix_b Ãâ·Â
+			print_matrix(matrix_b, row, col); //print_matrixí•¨ìˆ˜ë¡œ matrix_b ì¶œë ¥
 			break;
-        case 'a': case 'A': //¸í·É¾î°¡ a³ª AÀÎ °æ¿ì
+        case 'a': case 'A': //ëª…ë ¹ì–´ê°€ aë‚˜ Aì¸ ê²½ìš°
 			printf("Add two matrices\n");
-			addition_matrix(matrix_a, matrix_b, row, col); //addition_matrix ÇÔ¼ö
+			addition_matrix(matrix_a, matrix_b, row, col); //addition_matrix í•¨ìˆ˜
 			break;
-        case 's': case 'S': //¸í·É¾î°¡ s³ª SÀÎ °æ¿ì
+        case 's': case 'S': //ëª…ë ¹ì–´ê°€ së‚˜ Sì¸ ê²½ìš°
 			printf("Subtract two matrices \n");
-            subtraction_matrix(matrix_a, matrix_b, row, col); //subtraction_matrix ÇÔ¼ö·Î matrix_a¿Í matrix_bÀÇ Â÷¸¦ ±¸ÇÑ´Ù
+            subtraction_matrix(matrix_a, matrix_b, row, col); //subtraction_matrix í•¨ìˆ˜ë¡œ matrix_aì™€ matrix_bì˜ ì°¨ë¥¼ êµ¬í•œë‹¤
 			break;
-        case 't': case 'T': //¸í·É¾î°¡ t³ª TÀÎ °æ¿ì
+        case 't': case 'T': //ëª…ë ¹ì–´ê°€ të‚˜ Tì¸ ê²½ìš°
 			printf("Transpose matrix_a \n");
 			printf("matrix_a\n");
-            transpose_matrix(matrix_a, matrix_a_t, col, row); //transpose_matrixÇÔ¼ö·Î matrix_aÀÇ ÀüÄ¡ÇÔ¼öÀÎ matrix_t¸¦ ±¸ÇÑ´Ù
-            print_matrix(matrix_a_t, col, row); //print_matrix ÇÔ¼ö·Î °á°ú Ãâ·Â
+            transpose_matrix(matrix_a, matrix_a_t, col, row); //transpose_matrixí•¨ìˆ˜ë¡œ matrix_aì˜ ì „ì¹˜í•¨ìˆ˜ì¸ matrix_të¥¼ êµ¬í•œë‹¤
+            print_matrix(matrix_a_t, col, row); //print_matrix í•¨ìˆ˜ë¡œ ê²°ê³¼ ì¶œë ¥
 			break;
-        case 'm': case 'M': //¸í·É¾î°¡ mÀÌ³ª MÀÎ °æ¿ì
+        case 'm': case 'M': //ëª…ë ¹ì–´ê°€ mì´ë‚˜ Mì¸ ê²½ìš°
 			printf("Multiply matrix_a with transposed matrix_a \n");
-			transpose_matrix(matrix_a, matrix_a_t, col, row); //transpose_matrixÇÔ¼ö·Î matrix_aÀÇ ÀüÄ¡ÇÔ¼öÀÎ matrix_t¸¦ ±¸ÇÑ´Ù
-            multiply_matrix(matrix_a, matrix_a_t, row, col);  //multifly_matrixÇÔ¼ö·Î matrix_a¿Í matrix_aÀÇ ÀüÄ¡ÇÔ¼öÀÎ matrix_tÀÇ °öÀ» ±¸ÇÑ´Ù
+			transpose_matrix(matrix_a, matrix_a_t, col, row); //transpose_matrixí•¨ìˆ˜ë¡œ matrix_aì˜ ì „ì¹˜í•¨ìˆ˜ì¸ matrix_të¥¼ êµ¬í•œë‹¤
+            multiply_matrix(matrix_a, matrix_a_t, row, col);  //multifly_matrixí•¨ìˆ˜ë¡œ matrix_aì™€ matrix_aì˜ ì „ì¹˜í•¨ìˆ˜ì¸ matrix_tì˜ ê³±ì„ êµ¬í•œë‹¤
 			break;
-        case 'q': case 'Q': //¸í·É¾î°¡ q³ª QÀÎ °æ¿ì
+        case 'q': case 'Q': //ëª…ë ¹ì–´ê°€ që‚˜ Qì¸ ê²½ìš°
             printf("Free all matrices..\n");
-            free_matrix(matrix_a_t, col, row); //free_matrixÇÔ¼ö·Î matrix_a_tÀÇ ¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦
-            free_matrix(matrix_a, row, col);   //free_matrixÇÔ¼ö·Î matrix_aÀÇ ¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦
-            free_matrix(matrix_b, row, col);   //free_matrixÇÔ¼ö·Î matrix_bÀÇ ¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦
+            free_matrix(matrix_a_t, col, row); //free_matrixí•¨ìˆ˜ë¡œ matrix_a_tì˜ ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ
+            free_matrix(matrix_a, row, col);   //free_matrixí•¨ìˆ˜ë¡œ matrix_aì˜ ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ
+            free_matrix(matrix_b, row, col);   //free_matrixí•¨ìˆ˜ë¡œ matrix_bì˜ ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ
 			break;
 
-		default: //À§ÀÇ ÄÉÀÌ½º°¡ ¾Æ´Ñ ´Ù¸¥°ªÀÌ µé¾î¿Â´Ù¸é
-			printf("\n       >>>>>   Concentration!!   <<<<<     \n"); //concentrarion¸Þ½ÃÁö Ãâ·Â
+		default: //ìœ„ì˜ ì¼€ì´ìŠ¤ê°€ ì•„ë‹Œ ë‹¤ë¥¸ê°’ì´ ë“¤ì–´ì˜¨ë‹¤ë©´
+			printf("\n       >>>>>   Concentration!!   <<<<<     \n"); //concentrarionë©”ì‹œì§€ ì¶œë ¥
 			break;
 		}
 
-	}while(command != 'q' && command != 'Q'); //¸í·É¾î°¡ q³ª QÀÏ‹š±îÁö ¹Ýº¹
+	}while(command != 'q' && command != 'Q'); //ëª…ë ¹ì–´ê°€ që‚˜ Qì¼Â‹Âšê¹Œì§€ ë°˜ë³µ
 
 	return 1;
 }
@@ -96,43 +96,43 @@ int main()
 int** create_matrix(int row, int col)
 {
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) { 					//row¿Í colÀÌ À½¼ö³ª 0ÀÏ °æ¿ì
-		printf("Check the size of row and col!\n"); //¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return NULL; 								//NULL ¹ÝÈ¯
+	if (row <= 0 || col <= 0) { 					//rowì™€ colì´ ìŒìˆ˜ë‚˜ 0ì¼ ê²½ìš°
+		printf("Check the size of row and col!\n"); //ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return NULL; 								//NULL ë°˜í™˜
 	}
 
-	int** matrix = (int**)malloc(sizeof(int*) * row); //int¿¡ ´ëÇÑ ÀÌÁßÆ÷ÀÎÅÍ matrix¿¡ intÅ¸ÀÔ»çÀÌÁî * row ¸¸Å­ÀÇ ¸Þ¸ð¸® ÇÒ´ç
-	for (int r = 0; r < row; r++) {					  //Å©±â°¡ rowÀÎ ¹è¿­ »ý¼º
-		matrix[r] = (int*)malloc(sizeof(int) * col);  //Æ÷ÀÎÅÍ¹è¿­ matrix[r]¿¡ intÅ¸ÀÔ»çÀÌÁî * col ¸¸Å­ÀÇ ¸Þ¸ð¸® ÇÒ´ç
+	int** matrix = (int**)malloc(sizeof(int*) * row); //intì— ëŒ€í•œ ì´ì¤‘í¬ì¸í„° matrixì— intíƒ€ìž…ì‚¬ì´ì¦ˆ * row ë§Œí¼ì˜ ë©”ëª¨ë¦¬ í• ë‹¹
+	for (int r = 0; r < row; r++) {					  //í¬ê¸°ê°€ rowì¸ ë°°ì—´ ìƒì„±
+		matrix[r] = (int*)malloc(sizeof(int) * col);  //í¬ì¸í„°ë°°ì—´ matrix[r]ì— intíƒ€ìž…ì‚¬ì´ì¦ˆ * col ë§Œí¼ì˜ ë©”ëª¨ë¦¬ í• ë‹¹
 	}
 
 	/* Check post conditions */
-	if (matrix == NULL) {						//matrix°¡ NULLÀÌ¶ó¸é
-		printf("Memory Allocation Failed.\n"); 	//¸Þ¸ð¸®ÇÒ´ç ½ÇÆÐ ¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return NULL; 							//NULL ¹ÝÈ¯
+	if (matrix == NULL) {						//matrixê°€ NULLì´ë¼ë©´
+		printf("Memory Allocation Failed.\n"); 	//ë©”ëª¨ë¦¬í• ë‹¹ ì‹¤íŒ¨ ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return NULL; 							//NULL ë°˜í™˜
 	}
 
-	return matrix; //matrix ¹ÝÈ¯
+	return matrix; //matrix ë°˜í™˜
 }
 
 /* print matrix whose size is row x col */
 void print_matrix(int** matrix, int row, int col)  
 {
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) {						//row¿Í colÀÌ À½¼ö³ª 0ÀÏ°æ¿ì
-		printf("Check the size of row and col!\n"); //¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ 
-		return;										//NULL ¹ÝÈ¯
+	if (row <= 0 || col <= 0) {						//rowì™€ colì´ ìŒìˆ˜ë‚˜ 0ì¼ê²½ìš°
+		printf("Check the size of row and col!\n"); //ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„ 
+		return;										//NULL ë°˜í™˜
 	}
-    for (int matrix_row = 0; matrix_row < row; matrix_row++) { //Çà·ÄÀ» Ãâ·ÂÇÑ´Ù
+    for (int matrix_row = 0; matrix_row < row; matrix_row++) { //í–‰ë ¬ì„ ì¶œë ¥í•œë‹¤
 		for (int matrix_col = 0; matrix_col < col; matrix_col++)
 			printf("%3d ", matrix[matrix_row][matrix_col]);
 		printf("\n");
 	}
 	printf("\n");
 	/* Check post conditions */
-	 if (matrix == NULL) {						//matrix°¡ NULLÀÌ¶ó¸é
-		printf("Memory Allocation Failed.\n");	//¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ ¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return;									//NULL ¹ÝÈ¯
+	 if (matrix == NULL) {						//matrixê°€ NULLì´ë¼ë©´
+		printf("Memory Allocation Failed.\n");	//ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨ ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return;									//NULL ë°˜í™˜
 	}
 
 
@@ -144,35 +144,35 @@ void print_matrix(int** matrix, int row, int col)
 int free_matrix(int** matrix, int row, int col)
 {
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) {						//row¿Í colÀÌ À½¼ö³ª 0ÀÌ¶ó¸é
-		printf("Check the size of row and col!\n"); //¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ 
-		return -1;									//-1¹ÝÈ¯
+	if (row <= 0 || col <= 0) {						//rowì™€ colì´ ìŒìˆ˜ë‚˜ 0ì´ë¼ë©´
+		printf("Check the size of row and col!\n"); //ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„ 
+		return -1;									//-1ë°˜í™˜
 	}
 
-	for (int matrix_row = 0; matrix_row < row; matrix_row++) { //Çà·ÄÀÇ col¿¡ ÇØ´çÇÏ´Â µ¿Àû¸Þ¸ð¸® ÇÒ´çÀ» ÇØÁ¦ÇÑ´Ù
+	for (int matrix_row = 0; matrix_row < row; matrix_row++) { //í–‰ë ¬ì˜ colì— í•´ë‹¹í•˜ëŠ” ë™ì ë©”ëª¨ë¦¬ í• ë‹¹ì„ í•´ì œí•œë‹¤
 		free(matrix[matrix_row]);
 	}
 
-	free(matrix); //matrix µ¿Àû ¸Þ¸ð¸® ÇÒ´ç ÇØÁ¦
+	free(matrix); //matrix ë™ì  ë©”ëª¨ë¦¬ í• ë‹¹ í•´ì œ
 	return 1;
 }
 
 
 /* assign random values to the given matrix */
-int fill_data(int** matrix, int row, int col) //Çà·ÄÀ» °¡¸®Å°´Â Æ÷ÀÎÅÍ matrix¿Í row, colÀ» ¹Þ¾Æ¿Â´Ù
+int fill_data(int** matrix, int row, int col) //í–‰ë ¬ì„ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„° matrixì™€ row, colì„ ë°›ì•„ì˜¨ë‹¤
 {
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) { 					//row ¿Í col°ªÀ¸·Î À½¼ö³ª 0ÀÌ ³Ñ¾î¿ÔÀ» °æ¿ì¿¡´Â 
-		printf("Check the size of row and col!\n"); //¿À·ù ¸Þ½ÃÁö¸¦ Ãâ·ÂÇÏ°í
-		return -1; 									// -1À» ¹ÝÈ¯ÇÑ´Ù
+	if (row <= 0 || col <= 0) { 					//row ì™€ colê°’ìœ¼ë¡œ ìŒìˆ˜ë‚˜ 0ì´ ë„˜ì–´ì™”ì„ ê²½ìš°ì—ëŠ” 
+		printf("Check the size of row and col!\n"); //ì˜¤ë¥˜ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ê³ 
+		return -1; 									// -1ì„ ë°˜í™˜í•œë‹¤
 	}
     for (int matrix_row = 0; matrix_row < row; matrix_row++)
 		for (int matrix_col = 0; matrix_col < col; matrix_col++)
-			matrix[matrix_row][matrix_col] = rand() % 20; //Çà·ÄÀ» 0~19 »çÀÌÀÇ ·£´ýÇÑ °ªÀ¸·Î Ã¤¿î´Ù
+			matrix[matrix_row][matrix_col] = rand() % 20; //í–‰ë ¬ì„ 0~19 ì‚¬ì´ì˜ ëžœë¤í•œ ê°’ìœ¼ë¡œ ì±„ìš´ë‹¤
 	/* Check post conditions */
-    if (matrix == NULL) { 					   //Çà·ÄÀÌ NULLÀÌ¶ó¸é
-		printf("Memory Allocation Failed.\n"); //¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ ¸Þ½ÃÁö¸¦ Ãâ·ÂÇÑ ÈÄ
-		return -1;							   //-1 ¹ÝÈ¯
+    if (matrix == NULL) { 					   //í–‰ë ¬ì´ NULLì´ë¼ë©´
+		printf("Memory Allocation Failed.\n"); //ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•œ í›„
+		return -1;							   //-1 ë°˜í™˜
 	}
 	return 1;
 }
@@ -180,47 +180,47 @@ int fill_data(int** matrix, int row, int col) //Çà·ÄÀ» °¡¸®Å°´Â Æ÷ÀÎÅÍ matrix¿Í 
 /* mmatrix_sum = matrix_a + matrix_b */
 int addition_matrix(int** matrix_a, int** matrix_b, int row, int col)
 {
-    int** matrix_sum = create_matrix(row, col); //create_matrix ÇÔ¼ö¸¦ »ç¿ëÇØ matrix_sumÇà·ÄÀ» ¸¸µç´Ù
+    int** matrix_sum = create_matrix(row, col); //create_matrix í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•´ matrix_sumí–‰ë ¬ì„ ë§Œë“ ë‹¤
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) {						//row¿Í colÀÌ À½¼ö³ª 0ÀÏ °æ¿ì
-		printf("Check the size of row and col!\n"); //¿À·ù ¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1;									//-1¹ÝÈ¯
+	if (row <= 0 || col <= 0) {						//rowì™€ colì´ ìŒìˆ˜ë‚˜ 0ì¼ ê²½ìš°
+		printf("Check the size of row and col!\n"); //ì˜¤ë¥˜ ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1;									//-1ë°˜í™˜
 	}
-	for (int matrix_row = 0; matrix_row < row; matrix_row++) {  //matrix_sum¿¡ matrix_a ¿Í matrix_b ¸¦ ´õÇÑ°ªÀ» ÀúÀå
+	for (int matrix_row = 0; matrix_row < row; matrix_row++) {  //matrix_sumì— matrix_a ì™€ matrix_b ë¥¼ ë”í•œê°’ì„ ì €ìž¥
 		for (int matrix_col = 0; matrix_col < col; matrix_col++)
 			matrix_sum[matrix_row][matrix_col] = matrix_a[matrix_row][matrix_col] + matrix_b[matrix_row][matrix_col];
 	}
 	/* Check post conditions */
-	if (matrix_a == NULL || matrix_b == NULL || matrix_sum == NULL) { //matrix_a, matrix_b, matrix_sum Áß ÇÏ³ª¶óµµ NULLÀÌ¶ó¸é 
-		printf("Memory Allocation Failed.\n");						  //¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ ¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1;													  //-1 ¹ÝÈ¯
+	if (matrix_a == NULL || matrix_b == NULL || matrix_sum == NULL) { //matrix_a, matrix_b, matrix_sum ì¤‘ í•˜ë‚˜ë¼ë„ NULLì´ë¼ë©´ 
+		printf("Memory Allocation Failed.\n");						  //ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨ ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1;													  //-1 ë°˜í™˜
 	}
 
-	print_matrix(matrix_sum, row, col); //print_matrixÇÔ¼ö¸¦ ÀÌ¿ëÇØ print_sum Çà·Ä Ãâ·Â
-	free_matrix(matrix_sum, row, col);	//free_matrixÇÔ¼ö¸¦ ÀÌ¿ëÇØ matrix_sum¿¡ ÇÒ´çµÈ ¸Þ¸ð¸® ÇØÁ¦
+	print_matrix(matrix_sum, row, col); //print_matrixí•¨ìˆ˜ë¥¼ ì´ìš©í•´ print_sum í–‰ë ¬ ì¶œë ¥
+	free_matrix(matrix_sum, row, col);	//free_matrixí•¨ìˆ˜ë¥¼ ì´ìš©í•´ matrix_sumì— í• ë‹¹ëœ ë©”ëª¨ë¦¬ í•´ì œ
 	return 1;
 }
 
 /* matrix_sub = matrix_a - matrix_b */
 int subtraction_matrix(int** matrix_a, int** matrix_b, int row, int col)
 {
-    int** matrix_sub = create_matrix(row, col); //create_matrix ÇÔ¼ö¸¦ »ç¿ëÇØ matrix_sub Çà·ÄÀ» ¸¸µç´Ù
+    int** matrix_sub = create_matrix(row, col); //create_matrix í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•´ matrix_sub í–‰ë ¬ì„ ë§Œë“ ë‹¤
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) {						//row³ª colÀÌ À½¼ö³ª 0ÀÌ¶ó¸é
-		printf("Check the size of row and col!\n");	//¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1;									//-1¹ÝÈ¯
+	if (row <= 0 || col <= 0) {						//rowë‚˜ colì´ ìŒìˆ˜ë‚˜ 0ì´ë¼ë©´
+		printf("Check the size of row and col!\n");	//ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1;									//-1ë°˜í™˜
 	}
-	for (int matrix_row = 0; matrix_row < row; matrix_row++) { //matrix_a¿¡¼­ matrix_b¸¦ –A ÈÄ matrix_sub¿¡ °ªÀ» ÀúÀå
+	for (int matrix_row = 0; matrix_row < row; matrix_row++) { //matrix_aì—ì„œ matrix_bë¥¼ Â–A í›„ matrix_subì— ê°’ì„ ì €ìž¥
 		for (int matrix_col = 0; matrix_col < col; matrix_col++)
 			matrix_sub[matrix_row][matrix_col] = matrix_a[matrix_row][matrix_col] - matrix_b[matrix_row][matrix_col];
 	}
 	/* Check post conditions */
-    if (matrix_a == NULL || matrix_b == NULL || matrix_sub == NULL) { //martix_a, matrix_b, matrix_sub Áß ÇÏ³ª¶óµµ NULLÀÌ¶ó¸é  
-		printf("Memory Allocation Failed.\n");						  //¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ ¸Þ½ÃÁö Ãâ·Â ÈÄ 
-		return -1;													  //-1 ¹ÝÈ¯
+    if (matrix_a == NULL || matrix_b == NULL || matrix_sub == NULL) { //martix_a, matrix_b, matrix_sub ì¤‘ í•˜ë‚˜ë¼ë„ NULLì´ë¼ë©´  
+		printf("Memory Allocation Failed.\n");						  //ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨ ë©”ì‹œì§€ ì¶œë ¥ í›„ 
+		return -1;													  //-1 ë°˜í™˜
 	}
-	print_matrix(matrix_sub, row, col); //print_matrixÇÔ¼ö¸¦ ÀÌ¿ëÇØ print_sum Çà·Ä Ãâ·Â
-	free_matrix(matrix_sub, row, col);  //free_matrix ÇÔ¼ö¸¦ ÀÌ¿ëÇØ matrix_sub¿¡ ÇÒ´çµÈ ¸Þ¸ð¸® ÇØÁ¦
+	print_matrix(matrix_sub, row, col); //print_matrixí•¨ìˆ˜ë¥¼ ì´ìš©í•´ print_sum í–‰ë ¬ ì¶œë ¥
+	free_matrix(matrix_sub, row, col);  //free_matrix í•¨ìˆ˜ë¥¼ ì´ìš©í•´ matrix_subì— í• ë‹¹ëœ ë©”ëª¨ë¦¬ í•´ì œ
 
 	return 1;
 }
@@ -229,19 +229,19 @@ int subtraction_matrix(int** matrix_a, int** matrix_b, int row, int col)
 int transpose_matrix(int** matrix, int** matrix_t, int row, int col)
 {
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) {						//row³ª colÀÌ À½¼ö³ª 0ÀÌ¶ó¸é
-		printf("Check the size of row and col!\n"); //¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1;									//-1¹ÝÈ¯
+	if (row <= 0 || col <= 0) {						//rowë‚˜ colì´ ìŒìˆ˜ë‚˜ 0ì´ë¼ë©´
+		printf("Check the size of row and col!\n"); //ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1;									//-1ë°˜í™˜
 	}
 	for (int matrix_row = 0; matrix_row < row; matrix_row++) { 
 		for (int matrix_col = 0; matrix_col < col; matrix_col++)
 			matrix_t[matrix_row][matrix_col] = matrix[matrix_col][matrix_row];
-	 //matrix_t[matrix_row][matrix_col]¿¡ matrix[matrix_col][matrix_row]À» ³Ö¾î matrix_aÀÇ ÀüÄ¡Çà·Ä matrix_tÀ» ¸¸µç´Ù
+	 //matrix_t[matrix_row][matrix_col]ì— matrix[matrix_col][matrix_row]ì„ ë„£ì–´ matrix_aì˜ ì „ì¹˜í–‰ë ¬ matrix_tì„ ë§Œë“ ë‹¤
 	}
 	/* Check post conditions */
-    if (matrix == NULL || matrix_t ==NULL) {   //matrix³ª matrix_t°¡ NULLÀÏ °æ¿ì
-		printf("Memory Allocation Failed.\n"); //¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1; 							   //-1 ¹ÝÈ¯
+    if (matrix == NULL || matrix_t ==NULL) {   //matrixë‚˜ matrix_tê°€ NULLì¼ ê²½ìš°
+		printf("Memory Allocation Failed.\n"); //ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1; 							   //-1 ë°˜í™˜
 	}
 
 	return 1;
@@ -250,27 +250,27 @@ int transpose_matrix(int** matrix, int** matrix_t, int row, int col)
 /* matrix_axt - matrix_a x matrix_t */
 int multiply_matrix(int** matrix_a, int** matrix_t, int row, int col)
 {
-    int** matrix_axt = create_matrix(row, row); //create_matrixÇÔ¼ö¸¦ ÀÌ¿ëÇØ matrix_a¿Í matrix_aÀÇ ÀüÄ¡Çà·Ä matrix_tÀÇ °ö¼ÀÀ» ÀúÀåÇÒ Çà·ÄÀ» ¸¸µç´Ù
+    int** matrix_axt = create_matrix(row, row); //create_matrixí•¨ìˆ˜ë¥¼ ì´ìš©í•´ matrix_aì™€ matrix_aì˜ ì „ì¹˜í–‰ë ¬ matrix_tì˜ ê³±ì…ˆì„ ì €ìž¥í•  í–‰ë ¬ì„ ë§Œë“ ë‹¤
 	/* Check pre conditions */
-	if (row <= 0 || col <= 0) {						//row³ª colÀÌ À½¼ö³ª 0ÀÌ¶ó¸é
-		printf("Check the size of row and col!\n");	//¿À·ù¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1;									//-1¹ÝÈ¯
+	if (row <= 0 || col <= 0) {						//rowë‚˜ colì´ ìŒìˆ˜ë‚˜ 0ì´ë¼ë©´
+		printf("Check the size of row and col!\n");	//ì˜¤ë¥˜ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1;									//-1ë°˜í™˜
 	}
 	for (int matrix_a_row = 0; matrix_a_row < row; matrix_a_row++) {
 		for (int matrix_t_row = 0; matrix_t_row < row; matrix_t_row++) {
-			int temp = 0; 										    					         //°ö¼À°ªÀ» ÀúÀåÇÏ´Â º¯¼ö temp ÃÊ±âÈ­
+			int temp = 0; 										    					         //ê³±ì…ˆê°’ì„ ì €ìž¥í•˜ëŠ” ë³€ìˆ˜ temp ì´ˆê¸°í™”
 			for (int matrix_col = 0; matrix_col < col; matrix_col++)
-				temp += matrix_a[matrix_a_row][matrix_col] * matrix_t[matrix_col][matrix_t_row]; //temp¿¡ matrix_a[matrix_a_row][matrix_col] * matrix_t[matrix_col][matrix_t_row] À» ÀúÀå
-			matrix_axt[matrix_a_row][matrix_t_row] = temp; 										 //matrix_axt¿¡ temp°ª ÀúÀå
+				temp += matrix_a[matrix_a_row][matrix_col] * matrix_t[matrix_col][matrix_t_row]; //tempì— matrix_a[matrix_a_row][matrix_col] * matrix_t[matrix_col][matrix_t_row] ì„ ì €ìž¥
+			matrix_axt[matrix_a_row][matrix_t_row] = temp; 										 //matrix_axtì— tempê°’ ì €ìž¥
 		}
 	}
 	/* Check post conditions */
-    if (matrix_t == NULL || matrix_axt ==NULL) {	//matrix_t³ª matrix_axt°¡ NULLÀÏ °æ¿ì
-		printf("Memory Allocation Failed.\n");		//¸Þ¸ð¸® ÇÒ´ç ½ÇÆÐ ¸Þ½ÃÁö Ãâ·Â ÈÄ
-		return -1;									//-1 ¹ÝÈ¯
+    if (matrix_t == NULL || matrix_axt ==NULL) {	//matrix_të‚˜ matrix_axtê°€ NULLì¼ ê²½ìš°
+		printf("Memory Allocation Failed.\n");		//ë©”ëª¨ë¦¬ í• ë‹¹ ì‹¤íŒ¨ ë©”ì‹œì§€ ì¶œë ¥ í›„
+		return -1;									//-1 ë°˜í™˜
 	}
-	print_matrix(matrix_axt, row, row); //print_matrix ÇÔ¼ö¸¦ ÀÌ¿ëÇØ matrix_axtÃâ·Â
-	free_matrix(matrix_axt, row, col); //free_matrix ÇÔ¼ö¸¦ ÀÌ¿ëÇØ matrix_axt¿¡ ÇÒ´çµÈ ¸Þ¸ð¸® ÇØÁ¦
+	print_matrix(matrix_axt, row, row); //print_matrix í•¨ìˆ˜ë¥¼ ì´ìš©í•´ matrix_axtì¶œë ¥
+	free_matrix(matrix_axt, row, col); //free_matrix í•¨ìˆ˜ë¥¼ ì´ìš©í•´ matrix_axtì— í• ë‹¹ëœ ë©”ëª¨ë¦¬ í•´ì œ
 	return 1;
 }
 
